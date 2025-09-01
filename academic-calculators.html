@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic calculators for grades, GPA, percent error, and matrix operations.">
+  <meta name="keywords" content="academic calculator, grade calculator, GPA calculator, percent error calculator, matrix calculator, student tools, educational calculator">
+  <link rel="icon" href="/favicon.ico">
+  <title>Academic Calculators - QuickCalc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>QuickCalc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basic-calculators.html">Basic</a>
+      <a href="scientific-calculators.html">Scientific</a>
+      <a href="statistics-calculators.html">Statistics</a>
+      <a href="geometry-calculators.html">Geometry</a>
+      <a href="converter-calculators.html">Converters</a>
+      <a href="academic-calculators.html">Academic</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+  
+  <!-- Top Banner Ad -->
+  <div class="ad-container ad-banner-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_BANNER_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <main>
+    <h2>🎓 Academic Calculators</h2>
+    <p class="page-description">Educational and specialized calculations for students, teachers, and researchers.</p>
+    
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('grade')">📊 Grade Calculator</a></li>
+      <li><a href="#" onclick="showSection('percentError')">📈 Percent Error</a></li>
+      <li><a href="#" onclick="showSection('halfLife')">⏰ Half-Life</a></li>
+      <li><a href="#" onclick="showSection('quadratic')">📐 Quadratic Formula</a></li>
+      <li><a href="#" onclick="showSection('matrix')">🔢 Matrix Calculator</a></li>
+    </ul>
+
+    <!-- Middle Rectangle Ad -->
+    <div class="ad-container ad-rectangle-middle">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_RECTANGLE_SLOT"
+           data-ad-format="rectangle,horizontal"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Calculator Sections -->
+    <section id="grade" class="tool-section">
+      <h3>📊 Grade Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('grade-percentage')" aria-controls="grade-percentage-tab" aria-selected="true">Percentage</button>
+        <button class="tab-button" onclick="switchTab('grade-weighted')" aria-controls="grade-weighted-tab" aria-selected="false">Weighted Grade</button>
+        <button class="tab-button" onclick="switchTab('grade-gpa')" aria-controls="grade-gpa-tab" aria-selected="false">GPA Calculator</button>
+      </div>
+      
+      <div id="grade-percentage-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Calculate Percentage</h4>
+          <p>Find what percentage one number is of another.</p>
+          <input type="number" id="score" placeholder="Score" step="0.01" aria-label="Enter score for percentage calculation">
+          <input type="number" id="total" placeholder="Total" step="0.01" aria-label="Enter total possible score">
+          <button onclick="calcPercentage()" aria-label="Calculate percentage">Calculate</button>
+          <p id="percentageResult"></p>
+        </div>
+      </div>
+      
+      <div id="grade-weighted-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Weighted Grade Calculator</h4>
+          <p><strong>Instructions:</strong> Add your assignments below. For each assignment, enter the score you received and the total possible points, then set the weight percentage.</p>
+          
+          <div id="assignments-container">
+            <div class="assignment-row">
+              <input type="text" placeholder="Assignment Name" class="assignment-name" aria-label="Enter assignment name">
+              <input type="number" placeholder="Score" class="assignment-score" step="0.01" aria-label="Enter assignment score">
+              <input type="number" placeholder="Total Points" class="assignment-total" step="0.01" aria-label="Enter total possible points">
+              <input type="number" placeholder="Weight %" class="assignment-weight" step="0.1" aria-label="Enter assignment weight percentage">
+              <button onclick="removeAssignment(this)" class="remove-btn" aria-label="Remove assignment">×</button>
+            </div>
+          </div>
+          
+          <button onclick="addAssignment()" class="add-btn" aria-label="Add new assignment">+ Add Assignment</button>
+          <button onclick="calcWeightedGrade()" aria-label="Calculate final weighted grade">Calculate Final Grade</button>
+          <p id="weightedGradeResult"></p>
+        </div>
+      </div>
+      
+      <div id="grade-gpa-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>GPA Calculator</h4>
+          <p>Calculate your Grade Point Average (GPA) based on course grades and credit hours.</p>
+          
+          <div id="courses-container">
+            <div class="course-row">
+              <input type="text" placeholder="Course Name" class="course-name" aria-label="Enter course name">
+              <select class="course-grade" aria-label="Select course grade">
+                <option value="4.0">A (4.0)</option>
+                <option value="3.7">A- (3.7)</option>
+                <option value="3.3">B+ (3.3)</option>
+                <option value="3.0">B (3.0)</option>
+                <option value="2.7">B- (2.7)</option>
+                <option value="2.3">C+ (2.3)</option>
+                <option value="2.0">C (2.0)</option>
+                <option value="1.7">C- (1.7)</option>
+                <option value="1.3">D+ (1.3)</option>
+                <option value="1.0">D (1.0)</option>
+                <option value="0.0">F (0.0)</option>
+              </select>
+              <input type="number" placeholder="Credit Hours" class="course-credits" step="0.5" min="0" aria-label="Enter course credit hours">
+              <button onclick="removeCourse(this)" class="remove-btn" aria-label="Remove course">×</button>
+            </div>
+          </div>
+          
+          <button onclick="addCourse()" class="add-btn" aria-label="Add new course">+ Add Course</button>
+          <button onclick="calcGPA()" aria-label="Calculate GPA">Calculate GPA</button>
+          <p id="gpaResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="percentError" class="tool-section">
+      <h3>📈 Percent Error Calculator</h3>
+      <div class="converter-group">
+        <h4>Calculate Percent Error</h4>
+        <p>Find the percentage difference between experimental and theoretical values.</p>
+        <p><strong>Formula:</strong> Percent Error = |(Experimental - Theoretical) / Theoretical| × 100%</p>
+        <input type="number" id="experimentalValue" placeholder="Experimental Value" step="any" aria-label="Enter experimental value">
+        <input type="number" id="theoreticalValue" placeholder="Theoretical Value" step="any" aria-label="Enter theoretical value">
+        <button onclick="calculatePercentError()" aria-label="Calculate percent error">Calculate</button>
+        <p id="percentErrorResult"></p>
+      </div>
+    </section>
+
+    <section id="halfLife" class="tool-section">
+      <h3>⏰ Half-Life Calculator</h3>
+      <div class="converter-group">
+        <h4>What is Half-Life?</h4>
+        <p><strong>Definition:</strong> Half-life is the time required for a quantity to reduce to half of its initial value. It's commonly used in radioactive decay, pharmacology, and other exponential decay processes.</p>
+        <p><strong>Formula:</strong> N(t) = N₀ × (1/2)^(t/T) where N₀ is initial amount, t is time elapsed, and T is half-life.</p>
+        <p><strong>Example:</strong> If a substance has a half-life of 5 years, after 5 years only 50% remains, after 10 years 25% remains, after 15 years 12.5% remains, etc.</p>
+      </div>
+      
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('halflife-basic')" aria-controls="halflife-basic-tab" aria-selected="true">Calculate Half-Life</button>
+        <button class="tab-button" onclick="switchTab('halflife-time')" aria-controls="halflife-time-tab" aria-selected="false">Calculate Time Elapsed</button>
+        <button class="tab-button" onclick="switchTab('halflife-remaining')" aria-controls="halflife-remaining-tab" aria-selected="false">Calculate Remaining Amount</button>
+      </div>
+      
+      <div id="halflife-basic-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Calculate Half-Life</h4>
+          <p><strong>What it does:</strong> Calculates the half-life of a substance given initial amount, final amount, and time elapsed.</p>
+          <p><strong>Formula:</strong> T = t / log₂(N₀/N) where T is half-life, t is time elapsed, N₀ is initial amount, and N is final amount.</p>
+          <input type="number" id="initialAmount" placeholder="Initial Amount" step="any" aria-label="Enter initial amount">
+          <input type="number" id="finalAmount" placeholder="Final Amount" step="any" aria-label="Enter final amount">
+          <input type="number" id="timeElapsed" placeholder="Time Elapsed" step="any" aria-label="Enter time elapsed">
+          <select id="timeUnit" aria-label="Select time unit">
+            <option value="seconds">Seconds</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+            <option value="years" selected>Years</option>
+            <option value="decades">Decades</option>
+            <option value="centuries">Centuries</option>
+          </select>
+          <button onclick="calculateHalfLife()" aria-label="Calculate half-life">Calculate Half-Life</button>
+          <p id="halfLifeResult"></p>
+        </div>
+      </div>
+      
+      <div id="halflife-time-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Calculate Time Elapsed</h4>
+          <p><strong>What it does:</strong> Calculates how much time has passed given the half-life, initial amount, and final amount.</p>
+          <p><strong>Formula:</strong> t = T × log₂(N₀/N) where t is time elapsed, T is half-life, N₀ is initial amount, and N is final amount.</p>
+          <input type="number" id="hlTime" placeholder="Half-Life" step="any" aria-label="Enter half-life value">
+          <input type="number" id="initialAmountTime" placeholder="Initial Amount" step="any" aria-label="Enter initial amount for time calculation">
+          <input type="number" id="finalAmountTime" placeholder="Final Amount" step="any" aria-label="Enter final amount for time calculation">
+          <select id="timeUnitTime" aria-label="Select time unit for time calculation">
+            <option value="seconds">Seconds</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+            <option value="years" selected>Years</option>
+            <option value="decades">Decades</option>
+            <option value="centuries">Centuries</option>
+          </select>
+          <button onclick="calculateTimeElapsed()" aria-label="Calculate time elapsed">Calculate Time Elapsed</button>
+          <p id="timeElapsedResult"></p>
+        </div>
+      </div>
+      
+      <div id="halflife-remaining-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Calculate Remaining Amount</h4>
+          <p><strong>What it does:</strong> Calculates how much of a substance remains after a given time period.</p>
+          <p><strong>Formula:</strong> N(t) = N₀ × (1/2)^(t/T) where N₀ is initial amount, t is time elapsed, and T is half-life.</p>
+          <input type="number" id="hlRemaining" placeholder="Half-Life" step="any" aria-label="Enter half-life for remaining amount calculation">
+          <input type="number" id="initialAmountRemaining" placeholder="Initial Amount" step="any" aria-label="Enter initial amount for remaining calculation">
+          <input type="number" id="timeElapsedRemaining" placeholder="Time Elapsed" step="any" aria-label="Enter time elapsed for remaining calculation">
+          <select id="timeUnitRemaining" aria-label="Select time unit for remaining amount calculation">
+            <option value="seconds">Seconds</option>
+            <option value="minutes">Minutes</option>
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+            <option value="years" selected>Years</option>
+            <option value="decades">Decades</option>
+            <option value="centuries">Centuries</option>
+          </select>
+          <button onclick="calculateRemainingAmount()" aria-label="Calculate remaining amount">Calculate Remaining Amount</button>
+          <p id="remainingAmountResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="quadratic" class="tool-section">
+      <h3>📐 Quadratic Formula Calculator</h3>
+      <div class="converter-group">
+        <h4>Solve Quadratic Equations</h4>
+        <p>Solve equations in the form ax² + bx + c = 0 using the quadratic formula.</p>
+        <p><strong>Quadratic Formula:</strong> x = (-b ± √(b² - 4ac)) / (2a)</p>
+        <input type="number" id="coefficientA" placeholder="Coefficient a" step="any" aria-label="Enter coefficient a">
+        <input type="number" id="coefficientB" placeholder="Coefficient b" step="any" aria-label="Enter coefficient b">
+        <input type="number" id="coefficientC" placeholder="Coefficient c" step="any" aria-label="Enter coefficient c">
+        <button onclick="solveQuadratic()" aria-label="Solve quadratic equation">Solve</button>
+        <p id="quadraticResult"></p>
+      </div>
+    </section>
+
+    <section id="matrix" class="tool-section">
+      <h3>🔢 Matrix Calculator</h3>
+      <div class="converter-group">
+        <h4>What are Matrices?</h4>
+        <p><strong>Definition:</strong> A matrix is a rectangular array of numbers arranged in rows and columns. Matrices are used in linear algebra, computer graphics, and solving systems of equations.</p>
+        <p><strong>Example 2×2 Matrix:</strong> [a b; c d] where a, b, c, d are numbers</p>
+        <p><strong>Applications:</strong> Transformations, solving linear equations, data analysis, and more.</p>
+      </div>
+      
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('matrix-determinant')" aria-controls="matrix-determinant-tab" aria-selected="true">Determinant</button>
+        <button class="tab-button" onclick="switchTab('matrix-inverse')" aria-controls="matrix-inverse-tab" aria-selected="false">Inverse Matrix</button>
+        <button class="tab-button" onclick="switchTab('matrix-multiply')" aria-controls="matrix-multiply-tab" aria-selected="false">Matrix Multiplication</button>
+      </div>
+      
+      <div id="matrix-determinant-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Calculate Determinant (2×2 Matrix)</h4>
+          <p><strong>What it calculates:</strong> The determinant is a scalar value that can be computed from a square matrix. It's used to determine if a matrix is invertible and in solving systems of equations.</p>
+          <p><strong>Formula:</strong> det([a b; c d]) = ad - bc</p>
+          <p><strong>Example:</strong> For matrix [2 3; 1 4], determinant = (2×4) - (3×1) = 8 - 3 = 5</p>
+          <p><strong>Interpretation:</strong> If det = 0, the matrix is not invertible. If det ≠ 0, the matrix is invertible.</p>
+          <div class="matrix-input">
+            <input type="number" id="a11" placeholder="a₁₁" step="any" aria-label="Enter matrix element a₁₁">
+            <input type="number" id="a12" placeholder="a₁₂" step="any" aria-label="Enter matrix element a₁₂">
+            <input type="number" id="a21" placeholder="a₂₁" step="any" aria-label="Enter matrix element a₂₁">
+            <input type="number" id="a22" placeholder="a₂₂" step="any" aria-label="Enter matrix element a₂₂">
+          </div>
+          <button onclick="calculateDeterminant()" aria-label="Calculate matrix determinant">Calculate Determinant</button>
+          <p id="determinantResult"></p>
+        </div>
+      </div>
+      
+      <div id="matrix-inverse-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Calculate Inverse Matrix (2×2)</h4>
+          <p><strong>What it calculates:</strong> The inverse of a matrix A is a matrix A⁻¹ such that A × A⁻¹ = I (identity matrix).</p>
+          <p><strong>Formula:</strong> A⁻¹ = (1/det(A)) × [d -b; -c a] where A = [a b; c d]</p>
+          <p><strong>Example:</strong> For matrix [2 1; 1 3], inverse = (1/5) × [3 -1; -1 2] = [0.6 -0.2; -0.2 0.4]</p>
+          <p><strong>Note:</strong> Only square matrices with non-zero determinants have inverses.</p>
+          <div class="matrix-input">
+            <input type="number" id="inv11" placeholder="a₁₁" step="any" aria-label="Enter matrix element a₁₁ for inverse calculation">
+            <input type="number" id="inv12" placeholder="a₁₂" step="any" aria-label="Enter matrix element a₁₂ for inverse calculation">
+            <input type="number" id="inv21" placeholder="a₂₁" step="any" aria-label="Enter matrix element a₂₁ for inverse calculation">
+            <input type="number" id="inv22" placeholder="a₂₂" step="any" aria-label="Enter matrix element a₂₂ for inverse calculation">
+          </div>
+          <button onclick="calculateInverse()" aria-label="Calculate matrix inverse">Calculate Inverse</button>
+          <p id="inverseResult"></p>
+        </div>
+      </div>
+      
+      <div id="matrix-multiply-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Matrix Multiplication (2×2 × 2×2)</h4>
+          <p><strong>What it calculates:</strong> Matrix multiplication combines two matrices to produce a new matrix.</p>
+          <p><strong>Formula:</strong> [a b; c d] × [e f; g h] = [ae+bg af+bh; ce+dg cf+dh]</p>
+          <p><strong>Example:</strong> [1 2; 3 4] × [5 6; 7 8] = [1×5+2×7 1×6+2×8; 3×5+4×7 3×6+4×8] = [19 22; 43 50]</p>
+          <p><strong>Note:</strong> Matrix multiplication is not commutative (A×B ≠ B×A in general).</p>
+          <p><strong>Matrix A:</strong></p>
+          <div class="matrix-input">
+            <input type="number" id="ma11" placeholder="a₁₁" step="any" aria-label="Enter matrix A element a₁₁">
+            <input type="number" id="ma12" placeholder="a₁₂" step="any" aria-label="Enter matrix A element a₁₂">
+            <input type="number" id="ma21" placeholder="a₂₁" step="any" aria-label="Enter matrix A element a₂₁">
+            <input type="number" id="ma22" placeholder="a₂₂" step="any" aria-label="Enter matrix A element a₂₂">
+          </div>
+          <p><strong>Matrix B:</strong></p>
+          <div class="matrix-input">
+            <input type="number" id="mb11" placeholder="b₁₁" step="any" aria-label="Enter matrix B element b₁₁">
+            <input type="number" id="mb12" placeholder="b₁₂" step="any" aria-label="Enter matrix B element b₁₂">
+            <input type="number" id="mb21" placeholder="b₂₁" step="any" aria-label="Enter matrix B element b₂₁">
+            <input type="number" id="mb22" placeholder="b₂₂" step="any" aria-label="Enter matrix B element b₂₂">
+          </div>
+          <button onclick="multiplyMatrices()" aria-label="Calculate matrix multiplication A × B">Calculate A × B</button>
+          <p id="multiplicationResult"></p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-banner-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_BOTTOM_BANNER_SLOT"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCalc</p>
+  </footer>
+
+  <script src="academic-calculators.js"></script>
+</body>
+</html>

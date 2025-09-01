@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free basic calculators for percentage, fractions, random numbers, and more at QuickCalc.">
+  <meta name="keywords" content="basic calculator, percentage calculator, fraction calculator, random number generator, rounding calculator, big number calculator, math tools">
+  <link rel="icon" href="/favicon.ico">
+  <title>Basic Calculators - QuickCalc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>QuickCalc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basic-calculators.html">Basic</a>
+      <a href="scientific-calculators.html">Scientific</a>
+      <a href="statistics-calculators.html">Statistics</a>
+      <a href="geometry-calculators.html">Geometry</a>
+      <a href="converter-calculators.html">Converters</a>
+      <a href="academic-calculators.html">Academic</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+  
+  <!-- Top Banner Ad -->
+  <div class="ad-container ad-banner-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_BANNER_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <main>
+    <h2>🧮 Basic Calculators</h2>
+    <p class="page-description">Essential mathematical tools for everyday calculations and basic operations.</p>
+    
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('percentage')">📊 Percentage Calculator</a></li>
+      <li><a href="#" onclick="showSection('fraction')">🔢 Fraction Calculator</a></li>
+      <li><a href="#" onclick="showSection('random')">🎲 Random Number Generator</a></li>
+      <li><a href="#" onclick="showSection('rounding')">🔢 Rounding Calculator</a></li>
+      <li><a href="#" onclick="showSection('bigNumber')">🔢 Big Number Calculator</a></li>
+    </ul>
+
+    <!-- Middle Rectangle Ad -->
+    <div class="ad-container ad-rectangle-middle">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_RECTANGLE_SLOT"
+           data-ad-format="rectangle,horizontal"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Calculator Sections -->
+    <section id="percentage" class="tool-section">
+      <h3>📊 Percentage Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('percentage-basic')" aria-controls="percentage-basic-tab" aria-selected="true">Basic Percentage</button>
+        <button class="tab-button" onclick="switchTab('percentage-change')" aria-controls="percentage-change-tab" aria-selected="false">Percentage Change</button>
+        <button class="tab-button" onclick="switchTab('percentage-of')" aria-controls="percentage-of-tab" aria-selected="false">Percentage Of</button>
+      </div>
+      
+      <div id="percentage-basic-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Calculate Percentage</h4>
+          <p>Find what percentage one number is of another.</p>
+          <input type="number" id="score" placeholder="Score" step="0.01" aria-label="Enter score for percentage calculation">
+          <input type="number" id="total" placeholder="Total" step="0.01" aria-label="Enter total possible score">
+          <button onclick="calcPercentage()" aria-label="Calculate percentage">Calculate</button>
+          <p id="percentageResult"></p>
+        </div>
+      </div>
+      
+      <div id="percentage-change-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Percentage Change</h4>
+          <p>Calculate the percentage increase or decrease between two values.</p>
+          <input type="number" id="oldValue" placeholder="Old Value" step="0.01" aria-label="Enter old value for percentage change calculation">
+          <input type="number" id="newValue" placeholder="New Value" step="0.01" aria-label="Enter new value for percentage change calculation">
+          <button onclick="calcPercentageChange()" aria-label="Calculate percentage change">Calculate</button>
+          <p id="percentageChangeResult"></p>
+        </div>
+      </div>
+      
+      <div id="percentage-of-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Percentage Of</h4>
+          <p>Find what a certain percentage of a number equals.</p>
+          <input type="number" id="percentageValue" placeholder="Percentage" step="0.01" aria-label="Enter percentage value">
+          <input type="number" id="baseNumber" placeholder="Base Number" step="0.01" aria-label="Enter base number to calculate percentage of">
+          <button onclick="calcPercentageOf()" aria-label="Calculate percentage of number">Calculate</button>
+          <p id="percentageOfResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fraction" class="tool-section">
+      <h3>🔢 Fraction Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('fraction-add')" aria-controls="fraction-add-tab" aria-selected="true">Add Fractions</button>
+        <button class="tab-button" onclick="switchTab('fraction-multiply')" aria-controls="fraction-multiply-tab" aria-selected="false">Multiply Fractions</button>
+        <button class="tab-button" onclick="switchTab('fraction-simplify')" aria-controls="fraction-simplify-tab" aria-selected="false">Simplify Fraction</button>
+      </div>
+      
+      <div id="fraction-add-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Add Fractions</h4>
+          <p>Add two fractions and get the result in simplified form.</p>
+          <input type="number" id="num1" placeholder="Numerator 1" step="1" aria-label="Enter first fraction numerator">
+          <input type="number" id="den1" placeholder="Denominator 1" step="1" aria-label="Enter first fraction denominator">
+          <input type="number" id="num2" placeholder="Numerator 2" step="1" aria-label="Enter second fraction numerator">
+          <input type="number" id="den2" placeholder="Denominator 2" step="1" aria-label="Enter second fraction denominator">
+          <button onclick="addFractions()" aria-label="Add fractions">Add Fractions</button>
+          <p id="fractionAddResult"></p>
+        </div>
+      </div>
+      
+      <div id="fraction-multiply-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Multiply Fractions</h4>
+          <p>Multiply two fractions and get the result in simplified form.</p>
+          <input type="number" id="num3" placeholder="Numerator 1" step="1" aria-label="Enter first fraction numerator for multiplication">
+          <input type="number" id="den3" placeholder="Denominator 1" step="1" aria-label="Enter first fraction denominator for multiplication">
+          <input type="number" id="num4" placeholder="Numerator 2" step="1" aria-label="Enter second fraction numerator for multiplication">
+          <input type="number" id="den4" placeholder="Denominator 2" step="1" aria-label="Enter second fraction denominator for multiplication">
+          <button onclick="multiplyFractions()" aria-label="Multiply fractions">Multiply Fractions</button>
+          <p id="fractionMultiplyResult"></p>
+        </div>
+      </div>
+      
+      <div id="fraction-simplify-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Simplify Fraction</h4>
+          <p>Reduce a fraction to its simplest form.</p>
+          <input type="number" id="numToSimplify" placeholder="Numerator" step="1" aria-label="Enter numerator to simplify">
+          <input type="number" id="denToSimplify" placeholder="Denominator" step="1" aria-label="Enter denominator to simplify">
+          <button onclick="simplifyFraction()" aria-label="Simplify fraction">Simplify</button>
+          <p id="fractionSimplifyResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="random" class="tool-section">
+      <h3>🎲 Random Number Generator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('random-custom')" aria-controls="random-custom-tab" aria-selected="true">Custom Range</button>
+        <button class="tab-button" onclick="switchTab('random-quick')" aria-controls="random-quick-tab" aria-selected="false">Quick Random</button>
+      </div>
+      
+      <div id="random-custom-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Custom Range Generator</h4>
+          <p>Generate random numbers within a specified range.</p>
+          <input type="number" id="minValue" placeholder="Minimum Value" step="1" aria-label="Enter minimum value for random number generation">
+          <input type="number" id="maxValue" placeholder="Maximum Value" step="1" aria-label="Enter maximum value for random number generation">
+          <input type="number" id="count" placeholder="Number of Results" step="1" min="1" max="100" value="1" aria-label="Enter number of random numbers to generate">
+          <button onclick="generateRandom()" aria-label="Generate random numbers">Generate</button>
+          <p id="randomResult"></p>
+        </div>
+      </div>
+      
+      <div id="random-quick-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Quick Random</h4>
+          <p>Quick random generators for common uses.</p>
+          <button onclick="generateDice()" aria-label="Roll a six-sided die">Roll Dice (1-6)</button>
+          <button onclick="generateCoin()" aria-label="Flip a coin">Flip Coin</button>
+          <button onclick="generateLottery()" aria-label="Generate lottery numbers">Lottery Numbers (1-49)</button>
+          <p id="quickRandomResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="rounding" class="tool-section">
+      <h3>🔢 Rounding Calculator</h3>
+      <div class="converter-group">
+        <h4>Number Rounding</h4>
+        <p>Round numbers to the nearest whole number, up, down, or to specific decimal places.</p>
+        <input type="number" id="numberToRound" placeholder="Number to round" step="any" aria-label="Enter number to round">
+        <select id="roundingType" aria-label="Select rounding method">
+          <option value="nearest">Nearest</option>
+          <option value="up">Round Up</option>
+          <option value="down">Round Down</option>
+          <option value="decimal">Decimal Places</option>
+        </select>
+        <input type="number" id="decimalPlaces" placeholder="Decimal places" step="1" min="0" max="10" value="2" aria-label="Enter number of decimal places for rounding">
+        <button onclick="roundNumber()" aria-label="Round number">Round</button>
+        <p id="roundingResult"></p>
+      </div>
+    </section>
+
+    <section id="bigNumber" class="tool-section">
+      <h3>🔢 Big Number Calculator</h3>
+      <div class="converter-group">
+        <h4>Large Number Arithmetic</h4>
+        <p>Perform calculations with very large numbers using BigInt.</p>
+        <input type="text" id="bigNumber1" placeholder="First number" aria-label="Enter first large number">
+        <select id="bigOperation" aria-label="Select arithmetic operation">
+          <option value="add">Add (+)</option>
+          <option value="subtract">Subtract (-)</option>
+          <option value="multiply">Multiply (×)</option>
+          <option value="divide">Divide (÷)</option>
+        </select>
+        <input type="text" id="bigNumber2" placeholder="Second number" aria-label="Enter second large number">
+        <button onclick="calculateBigNumbers()" aria-label="Calculate with large numbers">Calculate</button>
+        <p id="bigNumberResult"></p>
+      </div>
+    </section>
+    
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-banner-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_BOTTOM_BANNER_SLOT"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCalc</p>
+  </footer>
+
+  <script src="basic-calculators.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Statistics calculators for mean, median, standard deviation, and probability analysis.">
+  <meta name="keywords" content="statistics calculator, standard deviation, mean calculator, median calculator, probability calculator, z-score, confidence interval, data analysis">
+  <link rel="icon" href="/favicon.ico">
+  <title>Statistics Calculators - QuickCalc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>QuickCalc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basic-calculators.html">Basic</a>
+      <a href="scientific-calculators.html">Scientific</a>
+      <a href="statistics-calculators.html">Statistics</a>
+      <a href="geometry-calculators.html">Geometry</a>
+      <a href="converter-calculators.html">Converters</a>
+      <a href="academic-calculators.html">Academic</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+  
+  <!-- Top Banner Ad -->
+  <div class="ad-container ad-banner-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_BANNER_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <main>
+    <h2>📊 Statistics Calculators</h2>
+    <p class="page-description">Statistical analysis and probability calculations for data science and research.</p>
+    
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('statistics')">📊 Statistics Calculator</a></li>
+      <li><a href="#" onclick="showSection('stddev')">📈 Standard Deviation</a></li>
+      <li><a href="#" onclick="showSection('central')">📊 Mean, Median, Mode</a></li>
+      <li><a href="#" onclick="showSection('probability')">🎲 Probability</a></li>
+      <li><a href="#" onclick="showSection('zscore')">📊 Z-Score</a></li>
+    </ul>
+
+    <!-- Middle Rectangle Ad -->
+    <div class="ad-container ad-rectangle-middle">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_RECTANGLE_SLOT"
+           data-ad-format="rectangle,horizontal"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Calculator Sections -->
+    <section id="statistics" class="tool-section">
+      <h3>📊 Statistics Calculator</h3>
+      <div class="converter-group">
+        <h4>Comprehensive Statistics</h4>
+        <p><strong>How to use:</strong> Enter a list of numbers separated by commas, spaces, or newlines (e.g., 1, 2, 3, 4, 5). This calculator will compute all basic statistical measures including mean, median, mode, variance, standard deviation, range, and quartiles.</p>
+        <textarea id="dataSet" placeholder="Enter numbers separated by commas, spaces, or newlines (e.g., 1, 2, 3, 4, 5)" rows="4" aria-label="Enter dataset for comprehensive statistics calculation"></textarea>
+        <button onclick="calculateStatistics()" aria-label="Calculate all statistics">Calculate All Statistics</button>
+        <div id="statisticsResults"></div>
+      </div>
+    </section>
+
+    <section id="stddev" class="tool-section">
+      <h3>📈 Standard Deviation Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('stddev-population')" aria-controls="stddev-population-tab" aria-selected="true">Population σ</button>
+        <button class="tab-button" onclick="switchTab('stddev-sample')" aria-controls="stddev-sample-tab" aria-selected="false">Sample s</button>
+        <button class="tab-button" onclick="switchTab('stddev-variance')" aria-controls="stddev-variance-tab" aria-selected="false">Variance</button>
+      </div>
+      
+      <div id="stddev-population-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Population Standard Deviation (σ)</h4>
+          <p><strong>What it calculates:</strong> The population standard deviation measures how spread out the values are from the population mean. Use this when you have data for the entire population.</p>
+          <p><strong>Formula:</strong> σ = √(Σ(x - μ)² / N) where μ is the population mean and N is the population size.</p>
+          <p><strong>Example:</strong> If you have test scores for all students in a school, use population standard deviation.</p>
+          <textarea id="populationData" placeholder="Enter numbers separated by commas, spaces, or newlines" rows="4" aria-label="Enter population data for standard deviation calculation"></textarea>
+          <button onclick="calculatePopulationStdDev()" aria-label="Calculate population standard deviation">Calculate Population σ</button>
+          <p id="populationStdDevResult"></p>
+        </div>
+      </div>
+      
+      <div id="stddev-sample-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Sample Standard Deviation (s)</h4>
+          <p><strong>What it calculates:</strong> The sample standard deviation estimates the spread of values in a sample from the population. Use this when you have data from only a subset of the population.</p>
+          <p><strong>Formula:</strong> s = √(Σ(x - x̄)² / (n-1)) where x̄ is the sample mean and n is the sample size.</p>
+          <p><strong>Example:</strong> If you have test scores for 30 students from a school of 500, use sample standard deviation.</p>
+          <textarea id="sampleData" placeholder="Enter numbers separated by commas, spaces, or newlines" rows="4" aria-label="Enter sample data for standard deviation calculation"></textarea>
+          <button onclick="calculateSampleStdDev()" aria-label="Calculate sample standard deviation">Calculate Sample s</button>
+          <p id="sampleStdDevResult"></p>
+        </div>
+      </div>
+      
+      <div id="stddev-variance-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Variance Calculator</h4>
+          <p><strong>What it calculates:</strong> Variance is the average of squared deviations from the mean. It's the square of the standard deviation and measures the spread of data.</p>
+          <p><strong>Population Variance (σ²):</strong> Use when you have data for the entire population.</p>
+          <p><strong>Sample Variance (s²):</strong> Use when you have data from a sample of the population.</p>
+          <p><strong>Example:</strong> Variance of 4 means the data points are, on average, 2 units away from the mean (since √4 = 2).</p>
+          <textarea id="varianceData" placeholder="Enter numbers separated by commas, spaces, or newlines" rows="4" aria-label="Enter data for variance calculation"></textarea>
+          <select id="varianceType" aria-label="Select variance type">
+            <option value="population">Population Variance (σ²)</option>
+            <option value="sample">Sample Variance (s²)</option>
+          </select>
+          <button onclick="calculateVariance()" aria-label="Calculate variance">Calculate Variance</button>
+          <p id="varianceResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="central" class="tool-section">
+      <h3>📊 Mean, Median, Mode Calculator</h3>
+      <div class="converter-group">
+        <h4>Central Tendency Measures</h4>
+        <p>Calculate the three main measures of central tendency for a dataset.</p>
+        <textarea id="centralData" placeholder="Enter numbers separated by commas, spaces, or newlines" rows="4" aria-label="Enter data for central tendency calculation"></textarea>
+        <button onclick="calculateCentralTendency()" aria-label="Calculate central tendency measures">Calculate</button>
+        <div id="centralTendencyResults"></div>
+      </div>
+    </section>
+
+    <section id="probability" class="tool-section">
+      <h3>🎲 Probability Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('probability-basic')" aria-controls="probability-basic-tab" aria-selected="true">Basic Probability</button>
+        <button class="tab-button" onclick="switchTab('probability-conditional')" aria-controls="probability-conditional-tab" aria-selected="false">Conditional</button>
+        <button class="tab-button" onclick="switchTab('probability-binomial')" aria-controls="probability-binomial-tab" aria-selected="false">Binomial</button>
+      </div>
+      
+      <div id="probability-basic-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Basic Probability</h4>
+          <p>Calculate the probability of an event occurring: P(event) = favorable outcomes / total outcomes</p>
+          <input type="number" id="favorableOutcomes" placeholder="Favorable outcomes" step="1" aria-label="Enter number of favorable outcomes">
+          <input type="number" id="totalOutcomes" placeholder="Total outcomes" step="1" aria-label="Enter total number of possible outcomes">
+          <button onclick="calculateBasicProbability()" aria-label="Calculate basic probability">Calculate</button>
+          <p id="basicProbabilityResult"></p>
+        </div>
+      </div>
+      
+      <div id="probability-conditional-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Conditional Probability</h4>
+          <p>Calculate P(A|B) = P(A∩B) / P(B)</p>
+          <input type="number" id="probA" placeholder="P(A)" step="0.01" min="0" max="1" aria-label="Enter probability of event A">
+          <input type="number" id="probB" placeholder="P(B)" step="0.01" min="0" max="1" aria-label="Enter probability of event B">
+          <input type="number" id="probAandB" placeholder="P(A∩B)" step="0.01" min="0" max="1" aria-label="Enter probability of A and B occurring together">
+          <button onclick="calculateConditionalProbability()" aria-label="Calculate conditional probability">Calculate</button>
+          <p id="conditionalProbabilityResult"></p>
+        </div>
+      </div>
+      
+      <div id="probability-binomial-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Binomial Probability</h4>
+          <p>Calculate P(X = k) for binomial distribution: C(n,k) × p^k × (1-p)^(n-k)</p>
+          <input type="number" id="nTrials" placeholder="Number of trials (n)" step="1" aria-label="Enter number of trials">
+          <input type="number" id="kSuccesses" placeholder="Number of successes (k)" step="1" aria-label="Enter number of successes">
+          <input type="number" id="pSuccess" placeholder="Probability of success (p)" step="0.01" min="0" max="1" aria-label="Enter probability of success on each trial">
+          <button onclick="calculateBinomialProbability()" aria-label="Calculate binomial probability">Calculate</button>
+          <p id="binomialProbabilityResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="zscore" class="tool-section">
+      <h3>📊 Z-Score Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('zscore-calculate')" aria-controls="zscore-calculate-tab" aria-selected="true">Calculate Z-Score</button>
+        <button class="tab-button" onclick="switchTab('zscore-percentile')" aria-controls="zscore-percentile-tab" aria-selected="false">Z-Score to Percentile</button>
+        <button class="tab-button" onclick="switchTab('zscore-confidence')" aria-controls="zscore-confidence-tab" aria-selected="false">Confidence Interval</button>
+      </div>
+      
+      <div id="zscore-calculate-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Calculate Z-Score</h4>
+          <p>Z-Score = (x - μ) / σ where x is the value, μ is the mean, and σ is the standard deviation.</p>
+          <input type="number" id="dataValue" placeholder="Data value (x)" step="any" aria-label="Enter data value for Z-score calculation">
+          <input type="number" id="meanValue" placeholder="Mean (μ)" step="any" aria-label="Enter population mean">
+          <input type="number" id="stdDevValue" placeholder="Standard deviation (σ)" step="any" aria-label="Enter population standard deviation">
+          <button onclick="calculateZScore()" aria-label="Calculate Z-score">Calculate</button>
+          <p id="zScoreResult"></p>
+        </div>
+      </div>
+      
+      <div id="zscore-percentile-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Z-Score to Percentile</h4>
+          <p>Convert a Z-score to its corresponding percentile in the standard normal distribution.</p>
+          <input type="number" id="zScoreInput" placeholder="Z-Score" step="any" aria-label="Enter Z-score to convert to percentile">
+          <button onclick="calculatePercentile()" aria-label="Convert Z-score to percentile">Calculate</button>
+          <p id="percentileResult"></p>
+        </div>
+      </div>
+      
+      <div id="zscore-confidence-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Confidence Interval</h4>
+          <p>Calculate confidence intervals for population mean using sample data.</p>
+          <input type="number" id="sampleMean" placeholder="Sample mean" step="any" aria-label="Enter sample mean">
+          <input type="number" id="sampleStdDev" placeholder="Sample standard deviation" step="any" aria-label="Enter sample standard deviation">
+          <input type="number" id="sampleSize" placeholder="Sample size" step="1" aria-label="Enter sample size">
+          <select id="confidenceLevel" aria-label="Select confidence level">
+            <option value="0.90">90%</option>
+            <option value="0.95" selected>95%</option>
+            <option value="0.99">99%</option>
+          </select>
+          <button onclick="calculateConfidenceInterval()" aria-label="Calculate confidence interval">Calculate</button>
+          <p id="confidenceIntervalResult"></p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-banner-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_BOTTOM_BANNER_SLOT"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCalc</p>
+  </footer>
+
+  <script src="statistics-calculators.js"></script>
+</body>
+</html>

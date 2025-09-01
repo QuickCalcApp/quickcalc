@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Advanced scientific calculators for exponents, logarithms, and scientific notation.">
+  <meta name="keywords" content="scientific calculator, exponent calculator, log calculator, root calculator, scientific notation, advanced math, trigonometry, calculus tools">
+  <link rel="icon" href="/favicon.ico">
+  <title>Scientific Calculators - QuickCalc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>QuickCalc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basic-calculators.html">Basic</a>
+      <a href="scientific-calculators.html">Scientific</a>
+      <a href="statistics-calculators.html">Statistics</a>
+      <a href="geometry-calculators.html">Geometry</a>
+      <a href="converter-calculators.html">Converters</a>
+      <a href="academic-calculators.html">Academic</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+  
+  <!-- Top Banner Ad -->
+  <div class="ad-container ad-banner-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_BANNER_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <main>
+    <h2>🧮 Scientific Calculators</h2>
+    <p class="page-description">Advanced mathematical operations and scientific calculations for complex problems.</p>
+    
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('scientific')">🧮 Scientific Calculator</a></li>
+      <li><a href="#" onclick="showSection('exponent')">🔢 Exponent Calculator</a></li>
+      <li><a href="#" onclick="showSection('log')">📊 Log Calculator</a></li>
+      <li><a href="#" onclick="showSection('root')">🔢 Root Calculator</a></li>
+      <li><a href="#" onclick="showSection('notation')">🔬 Scientific Notation</a></li>
+    </ul>
+
+    <!-- Middle Rectangle Ad -->
+    <div class="ad-container ad-rectangle-middle">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_RECTANGLE_SLOT"
+           data-ad-format="rectangle,horizontal"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Calculator Sections -->
+    <section id="scientific" class="tool-section">
+      <h3>🧮 Scientific Calculator</h3>
+      <div class="converter-group">
+        <h4>Advanced Mathematical Operations</h4>
+        <p>Perform complex calculations with trigonometric functions, logarithms, and more.</p>
+        <input type="text" id="calcDisplay" placeholder="Enter expression" readonly aria-label="Calculator display showing current expression">
+        <div class="calc-buttons">
+          <button onclick="addToCalc('(')" aria-label="Add opening parenthesis">(</button>
+          <button onclick="addToCalc(')')" aria-label="Add closing parenthesis">)</button>
+          <button onclick="addToCalc('^')" aria-label="Add exponentiation operator">^</button>
+          <button onclick="clearCalc()" aria-label="Clear calculator">C</button>
+          <button onclick="backspace()" aria-label="Delete last character">⌫</button>
+          <br>
+          <button onclick="addToCalc('sin(')" aria-label="Add sine function">sin</button>
+          <button onclick="addToCalc('cos(')" aria-label="Add cosine function">cos</button>
+          <button onclick="addToCalc('tan(')" aria-label="Add tangent function">tan</button>
+          <button onclick="addToCalc('Math.PI')" aria-label="Add pi constant">π</button>
+          <button onclick="addToCalc('/')" aria-label="Add division operator">/</button>
+          <br>
+          <button onclick="addToCalc('7')" aria-label="Add digit 7">7</button>
+          <button onclick="addToCalc('8')" aria-label="Add digit 8">8</button>
+          <button onclick="addToCalc('9')" aria-label="Add digit 9">9</button>
+          <button onclick="addToCalc('*')" aria-label="Add multiplication operator">×</button>
+          <button onclick="addToCalc('Math.sqrt(')" aria-label="Add square root function">√</button>
+          <br>
+          <button onclick="addToCalc('4')" aria-label="Add digit 4">4</button>
+          <button onclick="addToCalc('5')" aria-label="Add digit 5">5</button>
+          <button onclick="addToCalc('6')" aria-label="Add digit 6">6</button>
+          <button onclick="addToCalc('-')" aria-label="Add subtraction operator">-</button>
+          <button onclick="addToCalc('Math.log(')" aria-label="Add natural logarithm function">ln</button>
+          <br>
+          <button onclick="addToCalc('1')" aria-label="Add digit 1">1</button>
+          <button onclick="addToCalc('2')" aria-label="Add digit 2">2</button>
+          <button onclick="addToCalc('3')" aria-label="Add digit 3">3</button>
+          <button onclick="addToCalc('+')" aria-label="Add addition operator">+</button>
+          <button onclick="addToCalc('Math.log10(')" aria-label="Add base-10 logarithm function">log</button>
+          <br>
+          <button onclick="addToCalc('0')" aria-label="Add digit 0">0</button>
+          <button onclick="addToCalc('.')" aria-label="Add decimal point">.</button>
+          <button onclick="calculate()" class="equals" aria-label="Calculate result">=</button>
+        </div>
+        <p id="calcResult"></p>
+      </div>
+    </section>
+
+    <section id="exponent" class="tool-section">
+      <h3>🔢 Exponent Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('exponent-basic')" aria-controls="exponent-basic-tab" aria-selected="true">Basic Exponent</button>
+        <button class="tab-button" onclick="switchTab('exponent-fractional')" aria-controls="exponent-fractional-tab" aria-selected="false">Fractional Exponent</button>
+        <button class="tab-button" onclick="switchTab('exponent-negative')" aria-controls="exponent-negative-tab" aria-selected="false">Negative Exponent</button>
+      </div>
+      
+      <div id="exponent-basic-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Calculate Power</h4>
+          <p>Calculate a number raised to a power: base^exponent</p>
+          <input type="number" id="base" placeholder="Base" step="any" aria-label="Enter base number for exponentiation">
+          <input type="number" id="exponent" placeholder="Exponent" step="any" aria-label="Enter exponent value">
+          <button onclick="calculateExponent()" aria-label="Calculate power">Calculate</button>
+          <p id="exponentResult"></p>
+        </div>
+      </div>
+      
+      <div id="exponent-fractional-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Fractional Exponent</h4>
+          <p>Calculate a number raised to a fractional power: base^(numerator/denominator)</p>
+          <input type="number" id="baseFrac" placeholder="Base" step="any" aria-label="Enter base number for fractional exponent">
+          <input type="number" id="numerator" placeholder="Numerator" step="any" aria-label="Enter numerator of fractional exponent">
+          <input type="number" id="denominator" placeholder="Denominator" step="any" aria-label="Enter denominator of fractional exponent">
+          <button onclick="calculateFractionalExponent()" aria-label="Calculate fractional exponent">Calculate</button>
+          <p id="fractionalExponentResult"></p>
+        </div>
+      </div>
+      
+      <div id="exponent-negative-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Negative Exponent</h4>
+          <p>Calculate a number raised to a negative power: base^(-exponent) = 1/base^exponent</p>
+          <input type="number" id="baseNeg" placeholder="Base" step="any" aria-label="Enter base number for negative exponent">
+          <input type="number" id="exponentNeg" placeholder="Exponent" step="any" aria-label="Enter negative exponent value">
+          <button onclick="calculateNegativeExponent()" aria-label="Calculate negative exponent">Calculate</button>
+          <p id="negativeExponentResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="log" class="tool-section">
+      <h3>📊 Log Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('log-natural')" aria-controls="log-natural-tab" aria-selected="true">Natural Log</button>
+        <button class="tab-button" onclick="switchTab('log-common')" aria-controls="log-common-tab" aria-selected="false">Common Log</button>
+        <button class="tab-button" onclick="switchTab('log-custom')" aria-controls="log-custom-tab" aria-selected="false">Custom Base</button>
+      </div>
+      
+      <div id="log-natural-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Natural Logarithm (ln)</h4>
+          <p>Calculate the natural logarithm of a number: ln(x)</p>
+          <input type="number" id="lnValue" placeholder="Value" step="any" aria-label="Enter value for natural logarithm calculation">
+          <button onclick="calculateNaturalLog()" aria-label="Calculate natural logarithm">Calculate</button>
+          <p id="naturalLogResult"></p>
+        </div>
+      </div>
+      
+      <div id="log-common-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Common Logarithm (log₁₀)</h4>
+          <p>Calculate the base-10 logarithm of a number: log₁₀(x)</p>
+          <input type="number" id="log10Value" placeholder="Value" step="any" aria-label="Enter value for common logarithm calculation">
+          <button onclick="calculateCommonLog()" aria-label="Calculate common logarithm">Calculate</button>
+          <p id="commonLogResult"></p>
+        </div>
+      </div>
+      
+      <div id="log-custom-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Custom Base Logarithm</h4>
+          <p>Calculate logarithm with any base: log_base(value)</p>
+          <input type="number" id="logBase" placeholder="Base" step="any" aria-label="Enter logarithm base">
+          <input type="number" id="logValue" placeholder="Value" step="any" aria-label="Enter value for custom base logarithm">
+          <button onclick="calculateCustomLog()" aria-label="Calculate custom base logarithm">Calculate</button>
+          <p id="customLogResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="root" class="tool-section">
+      <h3>🔢 Root Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('root-square')" aria-controls="root-square-tab" aria-selected="true">Square Root</button>
+        <button class="tab-button" onclick="switchTab('root-cube')" aria-controls="root-cube-tab" aria-selected="false">Cube Root</button>
+        <button class="tab-button" onclick="switchTab('root-nth')" aria-controls="root-nth-tab" aria-selected="false">Nth Root</button>
+      </div>
+      
+      <div id="root-square-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Square Root</h4>
+          <p>Calculate the square root of a number: √x</p>
+          <input type="number" id="squareRootValue" placeholder="Value" step="any" aria-label="Enter value for square root calculation">
+          <button onclick="calculateSquareRoot()" aria-label="Calculate square root">Calculate</button>
+          <p id="squareRootResult"></p>
+        </div>
+      </div>
+      
+      <div id="root-cube-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Cube Root</h4>
+          <p>Calculate the cube root of a number: ∛x</p>
+          <input type="number" id="cubeRootValue" placeholder="Value" step="any" aria-label="Enter value for cube root calculation">
+          <button onclick="calculateCubeRoot()" aria-label="Calculate cube root">Calculate</button>
+          <p id="cubeRootResult"></p>
+        </div>
+      </div>
+      
+      <div id="root-nth-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Nth Root</h4>
+          <p>Calculate the nth root of a number: nth root of x</p>
+          <input type="number" id="nthRootValue" placeholder="Value" step="any" aria-label="Enter value for nth root calculation">
+          <input type="number" id="nthRootDegree" placeholder="Degree (n)" step="any" aria-label="Enter root degree">
+          <button onclick="calculateNthRoot()" aria-label="Calculate nth root">Calculate</button>
+          <p id="nthRootResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="notation" class="tool-section">
+      <h3>🔬 Scientific Notation Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('notation-to')" aria-controls="notation-to-tab" aria-selected="true">To Scientific</button>
+        <button class="tab-button" onclick="switchTab('notation-from')" aria-controls="notation-from-tab" aria-selected="false">From Scientific</button>
+        <button class="tab-button" onclick="switchTab('notation-operations')" aria-controls="notation-operations-tab" aria-selected="false">Operations</button>
+      </div>
+      
+      <div id="notation-to-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Convert to Scientific Notation</h4>
+          <p>Convert a regular number to scientific notation: a × 10^b</p>
+          <input type="number" id="numberToNotation" placeholder="Number" step="any" aria-label="Enter number to convert to scientific notation">
+          <button onclick="convertToScientificNotation()" aria-label="Convert to scientific notation">Convert</button>
+          <p id="toNotationResult"></p>
+        </div>
+      </div>
+      
+      <div id="notation-from-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Convert from Scientific Notation</h4>
+          <p>Convert scientific notation to a regular number</p>
+          <input type="text" id="notationNumber" placeholder="e.g., 1.23e+4" aria-label="Enter number in scientific notation to convert">
+          <button onclick="convertFromScientificNotation()" aria-label="Convert from scientific notation">Convert</button>
+          <p id="fromNotationResult"></p>
+        </div>
+      </div>
+      
+      <div id="notation-operations-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Scientific Notation Operations</h4>
+          <p>Perform arithmetic operations on numbers in scientific notation</p>
+          <input type="text" id="notation1" placeholder="First number (e.g., 1.23e+4)" aria-label="Enter first number in scientific notation">
+          <select id="notationOperation" aria-label="Select arithmetic operation">
+            <option value="add">Add (+)</option>
+            <option value="subtract">Subtract (-)</option>
+            <option value="multiply">Multiply (×)</option>
+            <option value="divide">Divide (÷)</option>
+          </select>
+          <input type="text" id="notation2" placeholder="Second number (e.g., 5.67e+3)" aria-label="Enter second number in scientific notation">
+          <button onclick="calculateNotationOperation()" aria-label="Calculate scientific notation operation">Calculate</button>
+          <p id="notationOperationResult"></p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-banner-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_BOTTOM_BANNER_SLOT"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCalc</p>
+  </footer>
+
+  <script src="scientific-calculators.js"></script>
+</body>
+</html>

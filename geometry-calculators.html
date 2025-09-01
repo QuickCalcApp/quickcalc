@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Geometry calculators for triangles, circles, area, and volume calculations.">
+  <meta name="keywords" content="geometry calculator, triangle calculator, circle calculator, area calculator, volume calculator, shape calculator, math geometry, 2D shapes, 3D shapes">
+  <link rel="icon" href="/favicon.ico">
+  <title>Geometry Calculators - QuickCalc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>QuickCalc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basic-calculators.html">Basic</a>
+      <a href="scientific-calculators.html">Scientific</a>
+      <a href="statistics-calculators.html">Statistics</a>
+      <a href="geometry-calculators.html">Geometry</a>
+      <a href="converter-calculators.html">Converters</a>
+      <a href="academic-calculators.html">Academic</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+  
+  <!-- Top Banner Ad -->
+  <div class="ad-container ad-banner-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_BANNER_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <main>
+    <h2>📐 Geometry Calculators</h2>
+    <p class="page-description">Geometric shapes and measurements for construction, design, and mathematical calculations.</p>
+    
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('triangle')">📐 Triangle Calculator</a></li>
+      <li><a href="#" onclick="showSection('circle')">⭕ Circle Calculator</a></li>
+      <li><a href="#" onclick="showSection('area-volume')">📏 Area & Volume Calculator</a></li>
+    </ul>
+
+    <!-- Middle Rectangle Ad -->
+    <div class="ad-container ad-rectangle-middle">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_RECTANGLE_SLOT"
+           data-ad-format="rectangle,horizontal"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Calculator Sections -->
+    <section id="triangle" class="tool-section">
+      <h3>📐 Triangle Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('triangle-area')" aria-controls="triangle-area-tab" aria-selected="true">Area & Perimeter</button>
+        <button class="tab-button" onclick="switchTab('triangle-sides')" aria-controls="triangle-sides-tab" aria-selected="false">Find Missing Side</button>
+        <button class="tab-button" onclick="switchTab('triangle-angles')" aria-controls="triangle-angles-tab" aria-selected="false">Find Missing Angle</button>
+      </div>
+      
+      <div id="triangle-area-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Triangle Area & Perimeter</h4>
+          <input type="number" id="base" placeholder="Base" step="any" aria-label="Enter triangle base length">
+          <input type="number" id="height" placeholder="Height" step="any" aria-label="Enter triangle height">
+          <input type="number" id="side1" placeholder="Side 1" step="any" aria-label="Enter first side length">
+          <input type="number" id="side2" placeholder="Side 2" step="any" aria-label="Enter second side length">
+          <input type="number" id="side3" placeholder="Side 3" step="any" aria-label="Enter third side length">
+          <button onclick="calculateTriangleArea()" aria-label="Calculate triangle area and perimeter">Calculate Area & Perimeter</button>
+          <p id="triangleAreaResult"></p>
+        </div>
+      </div>
+      
+      <div id="triangle-sides-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Find Missing Side (Pythagorean Theorem)</h4>
+          <input type="number" id="sideA" placeholder="Side A" step="any" aria-label="Enter side A length">
+          <input type="number" id="sideB" placeholder="Side B" step="any" aria-label="Enter side B length">
+          <input type="number" id="sideC" placeholder="Hypotenuse C" step="any" aria-label="Enter hypotenuse C length">
+          <button onclick="findMissingSide()" aria-label="Find missing side using Pythagorean theorem">Find Missing Side</button>
+          <p id="missingSideResult"></p>
+        </div>
+      </div>
+      
+      <div id="triangle-angles-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Find Missing Angle</h4>
+          <input type="number" id="angle1" placeholder="Angle 1 (degrees)" step="any" aria-label="Enter first angle in degrees">
+          <input type="number" id="angle2" placeholder="Angle 2 (degrees)" step="any" aria-label="Enter second angle in degrees">
+          <input type="number" id="angle3" placeholder="Angle 3 (degrees)" step="any" aria-label="Enter third angle in degrees">
+          <button onclick="findMissingAngle()" aria-label="Find missing angle">Find Missing Angle</button>
+          <p id="missingAngleResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="circle" class="tool-section">
+      <h3>⭕ Circle Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('circle-basic')" aria-controls="circle-basic-tab" aria-selected="true">Area & Circumference</button>
+        <button class="tab-button" onclick="switchTab('circle-sector')" aria-controls="circle-sector-tab" aria-selected="false">Sector & Arc</button>
+        <button class="tab-button" onclick="switchTab('circle-segment')" aria-controls="circle-segment-tab" aria-selected="false">Segment Area</button>
+      </div>
+      
+      <div id="circle-basic-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Circle Area & Circumference</h4>
+          <p><strong>What it calculates:</strong> Basic circle properties including area and circumference. Enter either radius or diameter.</p>
+          <p><strong>Formulas:</strong> Area = πr², Circumference = 2πr = πd</p>
+          <input type="number" id="radius" placeholder="Radius" step="any" aria-label="Enter circle radius">
+          <input type="number" id="diameter" placeholder="Diameter" step="any" aria-label="Enter circle diameter">
+          <button onclick="calculateCircle()" aria-label="Calculate circle properties">Calculate Circle Properties</button>
+          <p id="circleResult"></p>
+        </div>
+      </div>
+      
+      <div id="circle-sector-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Circle Sector & Arc Length</h4>
+          <p><strong>What it calculates:</strong> A sector is a "pie slice" of a circle, and an arc is the curved edge of that slice.</p>
+          <p><strong>Sector Area:</strong> The area of the pie slice = (θ/360°) × πr²</p>
+          <p><strong>Arc Length:</strong> The length of the curved edge = (θ/360°) × 2πr</p>
+          <p><strong>Example:</strong> A 90° sector of a circle with radius 5 has area = (90/360) × π × 5² = 19.63 square units</p>
+          <input type="number" id="sectorRadius" placeholder="Radius" step="any" aria-label="Enter circle radius for sector calculation">
+          <input type="number" id="sectorAngle" placeholder="Central Angle (degrees)" step="any" aria-label="Enter central angle in degrees">
+          <button onclick="calculateSector()" aria-label="Calculate sector area and arc length">Calculate Sector & Arc</button>
+          <p id="sectorResult"></p>
+        </div>
+      </div>
+      
+      <div id="circle-segment-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Circle Segment Area</h4>
+          <p><strong>What it calculates:</strong> A segment is the area between a chord (straight line across the circle) and the arc.</p>
+          <p><strong>Formula:</strong> Segment Area = r² × arccos((r-h)/r) - (r-h) × √(2rh-h²)</p>
+          <p><strong>Where:</strong> r = radius, h = segment height (distance from chord to arc)</p>
+          <p><strong>Example:</strong> A segment with radius 10 and height 3 has area ≈ 28.27 square units</p>
+          <input type="number" id="segmentRadius" placeholder="Radius" step="any" aria-label="Enter circle radius for segment calculation">
+          <input type="number" id="segmentHeight" placeholder="Segment Height" step="any" aria-label="Enter segment height">
+          <button onclick="calculateSegment()" aria-label="Calculate segment area">Calculate Segment Area</button>
+          <p id="segmentResult"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="area-volume" class="tool-section">
+      <h3>📏 Area & Volume Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('area-volume-2d')" aria-controls="area-volume-2d-tab" aria-selected="true">2D Shapes</button>
+        <button class="tab-button" onclick="switchTab('area-volume-3d')" aria-controls="area-volume-3d-tab" aria-selected="false">3D Shapes</button>
+      </div>
+      
+      <div id="area-volume-2d-tab" class="tab-content active">
+        <div class="calculator-tabs">
+          <button class="tab-button active" onclick="switchTab('area-rectangle')" aria-controls="area-rectangle-tab" aria-selected="true">Rectangle</button>
+          <button class="tab-button" onclick="switchTab('area-square')" aria-controls="area-square-tab" aria-selected="false">Square</button>
+          <button class="tab-button" onclick="switchTab('area-triangle')" aria-controls="area-triangle-tab" aria-selected="false">Triangle</button>
+          <button class="tab-button" onclick="switchTab('area-circle')" aria-controls="area-circle-tab" aria-selected="false">Circle</button>
+          <button class="tab-button" onclick="switchTab('area-parallelogram')" aria-controls="area-parallelogram-tab" aria-selected="false">Parallelogram</button>
+          <button class="tab-button" onclick="switchTab('area-trapezoid')" aria-controls="area-trapezoid-tab" aria-selected="false">Trapezoid</button>
+          <button class="tab-button" onclick="switchTab('area-ellipse')" aria-controls="area-ellipse-tab" aria-selected="false">Ellipse</button>
+          <button class="tab-button" onclick="switchTab('area-polygon')" aria-controls="area-polygon-tab" aria-selected="false">Regular Polygon</button>
+        </div>
+        
+        <div id="area-rectangle-tab" class="tab-content active">
+          <div class="converter-group">
+            <h4>Rectangle Area</h4>
+            <p><strong>Formula:</strong> Area = length × width</p>
+            <input type="number" id="rectLength" placeholder="Length" step="any" aria-label="Enter rectangle length">
+            <input type="number" id="rectWidth" placeholder="Width" step="any" aria-label="Enter rectangle width">
+            <button onclick="calculateRectangleArea()" aria-label="Calculate rectangle area">Calculate Area</button>
+            <p id="rectangleAreaResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-square-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Square Area</h4>
+            <p><strong>Formula:</strong> Area = side²</p>
+            <input type="number" id="squareSide" placeholder="Side Length" step="any" aria-label="Enter square side length">
+            <button onclick="calculateSquareArea()" aria-label="Calculate square area">Calculate Area</button>
+            <p id="squareAreaResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-triangle-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Triangle Area</h4>
+            <p><strong>Formula:</strong> Area = ½ × base × height</p>
+            <input type="number" id="triangleBase" placeholder="Base" step="any" aria-label="Enter triangle base length">
+            <input type="number" id="triangleHeight" placeholder="Height" step="any" aria-label="Enter triangle height">
+            <button onclick="calculateTriangleArea2D()" aria-label="Calculate triangle area">Calculate Area</button>
+            <p id="triangleArea2DResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-circle-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Circle Area</h4>
+            <p><strong>Formula:</strong> Area = πr²</p>
+            <input type="number" id="circleRadius" placeholder="Radius" step="any" aria-label="Enter circle radius">
+            <button onclick="calculateCircleArea()" aria-label="Calculate circle area">Calculate Area</button>
+            <p id="circleAreaResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-parallelogram-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Parallelogram Area</h4>
+            <p><strong>Formula:</strong> Area = base × height</p>
+            <input type="number" id="paraBase" placeholder="Base" step="any" aria-label="Enter parallelogram base length">
+            <input type="number" id="paraHeight" placeholder="Height" step="any" aria-label="Enter parallelogram height">
+            <button onclick="calculateParallelogramArea()" aria-label="Calculate parallelogram area">Calculate Area</button>
+            <p id="parallelogramAreaResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-trapezoid-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Trapezoid Area</h4>
+            <p><strong>Formula:</strong> Area = ½ × (base1 + base2) × height</p>
+            <input type="number" id="trapBase1" placeholder="Base 1" step="any" aria-label="Enter first base length">
+            <input type="number" id="trapBase2" placeholder="Base 2" step="any" aria-label="Enter second base length">
+            <input type="number" id="trapHeight" placeholder="Height" step="any" aria-label="Enter trapezoid height">
+            <button onclick="calculateTrapezoidArea()" aria-label="Calculate trapezoid area">Calculate Area</button>
+            <p id="trapezoidAreaResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-ellipse-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Ellipse Area</h4>
+            <p><strong>Formula:</strong> Area = π × a × b (where a and b are semi-major and semi-minor axes)</p>
+            <input type="number" id="ellipseA" placeholder="Semi-major axis (a)" step="any" aria-label="Enter semi-major axis length">
+            <input type="number" id="ellipseB" placeholder="Semi-minor axis (b)" step="any" aria-label="Enter semi-minor axis length">
+            <button onclick="calculateEllipseArea()" aria-label="Calculate ellipse area">Calculate Area</button>
+            <p id="ellipseAreaResult"></p>
+          </div>
+        </div>
+        
+        <div id="area-polygon-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Regular Polygon Area</h4>
+            <p><strong>Formula:</strong> Area = ½ × perimeter × apothem</p>
+            <input type="number" id="polygonSides" placeholder="Number of sides" step="1" min="3" aria-label="Enter number of polygon sides">
+            <input type="number" id="polygonSideLength" placeholder="Side length" step="any" aria-label="Enter polygon side length">
+            <button onclick="calculatePolygonArea()" aria-label="Calculate regular polygon area">Calculate Area</button>
+            <p id="polygonAreaResult"></p>
+          </div>
+        </div>
+      </div>
+      
+      <div id="area-volume-3d-tab" class="tab-content">
+        <div class="calculator-tabs">
+          <button class="tab-button active" onclick="switchTab('volume-cube')" aria-controls="volume-cube-tab" aria-selected="true">Cube</button>
+          <button class="tab-button" onclick="switchTab('volume-rectangular')" aria-controls="volume-rectangular-tab" aria-selected="false">Rectangular Prism</button>
+          <button class="tab-button" onclick="switchTab('volume-cylinder')" aria-controls="volume-cylinder-tab" aria-selected="false">Cylinder</button>
+          <button class="tab-button" onclick="switchTab('volume-sphere')" aria-controls="volume-sphere-tab" aria-selected="false">Sphere</button>
+          <button class="tab-button" onclick="switchTab('volume-cone')" aria-controls="volume-cone-tab" aria-selected="false">Cone</button>
+          <button class="tab-button" onclick="switchTab('volume-pyramid')" aria-controls="volume-pyramid-tab" aria-selected="false">Pyramid</button>
+          <button class="tab-button" onclick="switchTab('volume-triangular')" aria-controls="volume-triangular-tab" aria-selected="false">Triangular Prism</button>
+          <button class="tab-button" onclick="switchTab('volume-ellipsoid')" aria-controls="volume-ellipsoid-tab" aria-selected="false">Ellipsoid</button>
+        </div>
+        
+        <div id="volume-cube-tab" class="tab-content active">
+          <div class="converter-group">
+            <h4>Cube Volume</h4>
+            <p><strong>Formula:</strong> Volume = side³</p>
+            <input type="number" id="cubeSide" placeholder="Side Length" step="any" aria-label="Enter cube side length">
+            <button onclick="calculateCubeVolume()" aria-label="Calculate cube volume">Calculate Volume</button>
+            <p id="cubeVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-rectangular-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Rectangular Prism Volume</h4>
+            <p><strong>Formula:</strong> Volume = length × width × height</p>
+            <input type="number" id="rectLengthVol" placeholder="Length" step="any" aria-label="Enter rectangular prism length">
+            <input type="number" id="rectWidthVol" placeholder="Width" step="any" aria-label="Enter rectangular prism width">
+            <input type="number" id="rectHeightVol" placeholder="Height" step="any" aria-label="Enter rectangular prism height">
+            <button onclick="calculateRectangularVolume()" aria-label="Calculate rectangular prism volume">Calculate Volume</button>
+            <p id="rectangularVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-cylinder-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Cylinder Volume</h4>
+            <p><strong>Formula:</strong> Volume = πr²h</p>
+            <input type="number" id="cylinderRadius" placeholder="Radius" step="any" aria-label="Enter cylinder radius">
+            <input type="number" id="cylinderHeight" placeholder="Height" step="any" aria-label="Enter cylinder height">
+            <button onclick="calculateCylinderVolume()" aria-label="Calculate cylinder volume">Calculate Volume</button>
+            <p id="cylinderVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-sphere-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Sphere Volume</h4>
+            <p><strong>Formula:</strong> Volume = (4/3)πr³</p>
+            <input type="number" id="sphereRadius" placeholder="Radius" step="any" aria-label="Enter sphere radius">
+            <button onclick="calculateSphereVolume()" aria-label="Calculate sphere volume">Calculate Volume</button>
+            <p id="sphereVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-cone-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Cone Volume</h4>
+            <p><strong>Formula:</strong> Volume = (1/3)πr²h</p>
+            <input type="number" id="coneRadius" placeholder="Radius" step="any" aria-label="Enter cone radius">
+            <input type="number" id="coneHeight" placeholder="Height" step="any" aria-label="Enter cone height">
+            <button onclick="calculateConeVolume()" aria-label="Calculate cone volume">Calculate Volume</button>
+            <p id="coneVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-pyramid-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Pyramid Volume</h4>
+            <p><strong>Formula:</strong> Volume = (1/3) × base area × height</p>
+            <input type="number" id="pyramidBaseArea" placeholder="Base Area" step="any" aria-label="Enter pyramid base area">
+            <input type="number" id="pyramidHeight" placeholder="Height" step="any" aria-label="Enter pyramid height">
+            <button onclick="calculatePyramidVolume()" aria-label="Calculate pyramid volume">Calculate Volume</button>
+            <p id="pyramidVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-triangular-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Triangular Prism Volume</h4>
+            <p><strong>Formula:</strong> Volume = base area × height</p>
+            <input type="number" id="triPrismBase" placeholder="Base Area" step="any" aria-label="Enter triangular prism base area">
+            <input type="number" id="triPrismHeight" placeholder="Height" step="any" aria-label="Enter triangular prism height">
+            <button onclick="calculateTriangularPrismVolume()" aria-label="Calculate triangular prism volume">Calculate Volume</button>
+            <p id="triangularPrismVolumeResult"></p>
+          </div>
+        </div>
+        
+        <div id="volume-ellipsoid-tab" class="tab-content">
+          <div class="converter-group">
+            <h4>Ellipsoid Volume</h4>
+            <p><strong>Formula:</strong> Volume = (4/3)πabc</p>
+            <input type="number" id="ellipsoidA" placeholder="Semi-axis a" step="any" aria-label="Enter ellipsoid semi-axis a">
+            <input type="number" id="ellipsoidB" placeholder="Semi-axis b" step="any" aria-label="Enter ellipsoid semi-axis b">
+            <input type="number" id="ellipsoidC" placeholder="Semi-axis c" step="any" aria-label="Enter ellipsoid semi-axis c">
+            <button onclick="calculateEllipsoidVolume()" aria-label="Calculate ellipsoid volume">Calculate Volume</button>
+            <p id="ellipsoidVolumeResult"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-banner-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_BOTTOM_BANNER_SLOT"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCalc</p>
+  </footer>
+
+  <script src="geometry-calculators.js"></script>
+</body>
+</html>

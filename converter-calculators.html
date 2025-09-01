@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert units, currencies, binary, hex, and data storage with QuickCalc.">
+  <meta name="keywords" content="unit converter, currency converter, binary calculator, hex calculator, data storage converter, measurement converter, conversion tools">
+  <link rel="icon" href="/favicon.ico">
+  <title>Converter Calculators - QuickCalc</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>QuickCalc</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="basic-calculators.html">Basic</a>
+      <a href="scientific-calculators.html">Scientific</a>
+      <a href="statistics-calculators.html">Statistics</a>
+      <a href="geometry-calculators.html">Geometry</a>
+      <a href="converter-calculators.html">Converters</a>
+      <a href="academic-calculators.html">Academic</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+     crossorigin="anonymous"></script>
+  
+  <!-- Top Banner Ad -->
+  <div class="ad-container ad-banner-top">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+         data-ad-slot="YOUR_BANNER_SLOT"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  
+  <main>
+    <h2>🔄 Converter Calculators</h2>
+    <p class="page-description">Unit conversions and transformations for various measurement systems.</p>
+    
+    <ul class="menu">
+      <li><a href="#" onclick="showSection('unit')">📏 Unit Converter</a></li>
+      <li><a href="#" onclick="showSection('currency')">💰 Currency Converter</a></li>
+      <li><a href="#" onclick="showSection('binary-hex')">🔢 Binary/Hex Calculator</a></li>
+      <li><a href="#" onclick="showSection('storage')">💾 Data Storage Converter</a></li>
+    </ul>
+
+    <!-- Middle Rectangle Ad -->
+    <div class="ad-container ad-rectangle-middle">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_RECTANGLE_SLOT"
+           data-ad-format="rectangle,horizontal"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Calculator Sections -->
+    <section id="unit" class="tool-section">
+      <h3>📏 Unit Converter</h3>
+      <div class="converter-group">
+        <h4>Comprehensive Unit Conversion</h4>
+        <p>Convert between different units of measurement for length, mass, temperature, area, volume, and energy.</p>
+        <select id="conversionType" onchange="updateUnitOptions()" aria-label="Select conversion type">
+          <option value="length">📏 Length / Distance</option>
+          <option value="mass">⚖️ Mass / Weight</option>
+          <option value="temperature">🌡 Temperature</option>
+          <option value="area">📐 Area</option>
+          <option value="volume">🧪 Volume / Capacity</option>
+          <option value="energy">⚡ Energy</option>
+        </select>
+        <input type="number" id="metricValue" placeholder="Enter value" step="0.01" aria-label="Enter value to convert">
+        <select id="metricFrom" aria-label="Select source unit"></select>
+        <select id="imperialTo" aria-label="Select target unit"></select>
+        <button onclick="convertMetricImperial()" aria-label="Convert units">Convert</button>
+        <p id="metricResult"></p>
+        <div id="quickReference" class="quick-conversions">
+          <!-- Quick reference will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section id="currency" class="tool-section">
+      <h3>💰 Currency Converter</h3>
+      <div class="converter-group">
+        <h4>Real-Time Currency Conversion</h4>
+        <p>Convert between different currencies using live exchange rates from the Frankfurter API.</p>
+        <input type="number" id="amount" placeholder="Amount" step="0.01" aria-label="Enter amount to convert">
+        <select id="fromCurrency" aria-label="Select source currency"></select>
+        <select id="toCurrency" aria-label="Select target currency"></select>
+        <button onclick="convertCurrency()" aria-label="Convert currency">Convert</button>
+        <p id="currencyResult"></p>
+      </div>
+    </section>
+
+    <section id="binary-hex" class="tool-section">
+      <h3>🔢 Binary/Hex Calculator</h3>
+      <div class="calculator-tabs">
+        <button class="tab-button active" onclick="switchTab('binary-conversion')" aria-controls="binary-conversion-tab" aria-selected="true">Number Conversion</button>
+        <button class="tab-button" onclick="switchTab('binary-calc')" aria-controls="binary-calc-tab" aria-selected="false">Binary Calculator</button>
+        <button class="tab-button" onclick="switchTab('hex-calc')" aria-controls="hex-calc-tab" aria-selected="false">Hex Calculator</button>
+      </div>
+      
+      <div id="binary-conversion-tab" class="tab-content active">
+        <div class="converter-group">
+          <h4>Number Base Conversion</h4>
+          <p><strong>What it does:</strong> Converts numbers between different number systems (binary, octal, decimal, hexadecimal).</p>
+          <p><strong>Binary (Base 2):</strong> Uses only 0 and 1 (e.g., 1010 = 10 in decimal)</p>
+          <p><strong>Octal (Base 8):</strong> Uses digits 0-7 (e.g., 12 = 10 in decimal)</p>
+          <p><strong>Decimal (Base 10):</strong> Standard number system (e.g., 10 = 10)</p>
+          <p><strong>Hexadecimal (Base 16):</strong> Uses digits 0-9 and A-F (e.g., A = 10 in decimal)</p>
+          <input type="text" id="numberToConvert" placeholder="Number to convert" aria-label="Enter number to convert between bases">
+          <select id="fromBase" aria-label="Select source number base">
+            <option value="2">Binary (Base 2)</option>
+            <option value="8">Octal (Base 8)</option>
+            <option value="10" selected>Decimal (Base 10)</option>
+            <option value="16">Hexadecimal (Base 16)</option>
+          </select>
+          <select id="toBase" aria-label="Select target number base">
+            <option value="2">Binary (Base 2)</option>
+            <option value="8">Octal (Base 8)</option>
+            <option value="10">Decimal (Base 10)</option>
+            <option value="16" selected>Hexadecimal (Base 16)</option>
+          </select>
+          <button onclick="convertNumberBase()" aria-label="Convert number between bases">Convert</button>
+          <p id="baseConversionResult"></p>
+        </div>
+      </div>
+      
+      <div id="binary-calc-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Binary Calculator</h4>
+          <p><strong>What it does:</strong> Performs arithmetic operations (addition, subtraction, multiplication, division) on binary numbers.</p>
+          <p><strong>How to use:</strong> Enter binary numbers (using only 0 and 1) and select an operation. The result will be shown in both binary and decimal.</p>
+          <p><strong>Example:</strong> 1010 (binary) + 1100 (binary) = 10110 (binary) = 22 (decimal)</p>
+          <input type="text" id="binary1" placeholder="First binary number (e.g., 1010)" aria-label="Enter first binary number">
+          <select id="binaryOperation" aria-label="Select binary arithmetic operation">
+            <option value="add">Add (+)</option>
+            <option value="subtract">Subtract (-)</option>
+            <option value="multiply">Multiply (×)</option>
+            <option value="divide">Divide (÷)</option>
+          </select>
+          <input type="text" id="binary2" placeholder="Second binary number (e.g., 1100)" aria-label="Enter second binary number">
+          <button onclick="calculateBinary()" aria-label="Calculate binary arithmetic">Calculate</button>
+          <p id="binaryCalcResult"></p>
+        </div>
+      </div>
+      
+      <div id="hex-calc-tab" class="tab-content">
+        <div class="converter-group">
+          <h4>Hexadecimal Calculator</h4>
+          <p><strong>What it does:</strong> Performs arithmetic operations on hexadecimal numbers (base 16).</p>
+          <p><strong>How to use:</strong> Enter hex numbers (using digits 0-9 and letters A-F) and select an operation. The result will be shown in both hex and decimal.</p>
+          <p><strong>Example:</strong> A (hex) + B (hex) = 15 (hex) = 21 (decimal)</p>
+          <input type="text" id="hex1" placeholder="First hex number (e.g., A)" aria-label="Enter first hexadecimal number">
+          <select id="hexOperation" aria-label="Select hexadecimal arithmetic operation">
+            <option value="add">Add (+)</option>
+            <option value="subtract">Subtract (-)</option>
+            <option value="multiply">Multiply (×)</option>
+            <option value="divide">Divide (÷)</option>
+          </select>
+          <input type="text" id="hex2" placeholder="Second hex number (e.g., B)" aria-label="Enter second hexadecimal number">
+          <button onclick="calculateHex()" aria-label="Calculate hexadecimal arithmetic">Calculate</button>
+          <p id="hexCalcResult"></p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="storage" class="tool-section">
+      <h3>💾 Data Storage Converter</h3>
+      <div class="converter-group">
+        <h4>Digital Storage Conversion</h4>
+        <p>Convert between different units of digital storage (bytes, kilobytes, megabytes, gigabytes, terabytes).</p>
+        <input type="number" id="storageValue" placeholder="Value" step="0.01" aria-label="Enter storage value to convert">
+        <select id="storageFrom" aria-label="Select source storage unit">
+          <option value="B">Bytes</option>
+          <option value="KB">Kilobytes</option>
+          <option value="MB">Megabytes</option>
+          <option value="GB">Gigabytes</option>
+          <option value="TB">Terabytes</option>
+        </select>
+        <select id="storageTo" aria-label="Select target storage unit">
+          <option value="B">Bytes</option>
+          <option value="KB">Kilobytes</option>
+          <option value="MB">Megabytes</option>
+          <option value="GB">Gigabytes</option>
+          <option value="TB">Terabytes</option>
+        </select>
+        <button onclick="convertStorage()" aria-label="Convert storage units">Convert</button>
+        <p id="storageResult"></p>
+      </div>
+    </section>
+    
+    <!-- Bottom Banner Ad -->
+    <div class="ad-container ad-banner-bottom">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+           data-ad-slot="YOUR_BOTTOM_BANNER_SLOT"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickCalc</p>
+  </footer>
+
+  <script src="converter-calculators.js"></script>
+</body>
+</html>
